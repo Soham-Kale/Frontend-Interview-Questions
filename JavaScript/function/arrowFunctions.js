@@ -22,5 +22,19 @@ function fn() {
 const fnArr = () => {
     console.log(arguments);
 }
-fnArr(1,2,3);
+// fnArr(1,2,3);
+
+// 4. This keyword
+const obj = {
+    name: "Soham",
+    regularFn: function() {
+        console.log(this.name);   // Soham
+    },
+    arrowFn: () => {
+        console.log(this.name);   // undefined
+    }
+}
+
+obj.regularFn();
+obj.arrowFn();
 
