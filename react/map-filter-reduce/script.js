@@ -12,7 +12,6 @@ function PrintAllProducts() {
     return (
         <div>
             <h1>Question 1: Rerendering Conditions and Operations</h1>
-
             {
                 products.map((product, index) => { // id
                     return (
@@ -22,7 +21,6 @@ function PrintAllProducts() {
             }
 
             <h2>Question 2: How can filter products with specific category</h2>
-
             {
                 products.filter((product) => (product.category === 'Electronics')).map((product, index) => {
                     return (
@@ -38,8 +36,21 @@ function PrintAllProducts() {
                 }, 0)
             }
 
+            {/* Conditional Operator */}
+            <h2>Question 4: Difference between && vs ||</h2> {/* and return true, when both conditions true */}
+            <LogicalAnd/>
+            
         </div>
     )
+}
+
+function LogicalAnd() {
+    let x = 12;
+    let y = 21;
+
+    if(x > 0 && y > 10) {
+        return <span>Both are greater that 0.</span>
+    } else return <></>
 }
 
 const root = ReactDOM.createRoot(document.getElementById("title"));
