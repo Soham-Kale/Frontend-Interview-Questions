@@ -69,7 +69,6 @@ function PhotoSection() {
     return(
         <div>
             <h1>Photo Section</h1>
-
             {photos.splice(0, 5).map((photo) => {
                 return <h4 key={photo.id}>{photo.title}</h4>
             })}
