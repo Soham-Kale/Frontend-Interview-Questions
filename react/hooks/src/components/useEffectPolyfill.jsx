@@ -6,4 +6,4 @@ const useEffectPolyfill = () => {
   )
 }
 
-export default useEffectPolyfill
+export default useEffectPolyfill;

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const useeffect = () => {
-  return (
-    <div>useeffect</div>
-  )
+const useEffect = () => {
+    return (
+        <div>useEffect</div>
+    )
 }
 
-export default useeffect
+export default useEffect;
