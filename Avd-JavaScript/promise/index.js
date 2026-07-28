@@ -1,42 +1,3 @@
-// Promises in javascript are used to handle asynchronous operations. 
-// They represent a value that may be available now, or in the future, or never. 
-// A Promise is in one of three states:
-// 1. Pending: Initial state, neither fulfilled nor rejected.
-// 2. Fulfilled: The operation completed successfully.
-// 3. Rejected: The operation failed.
-
-
-// syncronous vs asynchronous code
-
-// synchronous code: It executes code line by line.
-// console.log("Hello");
-// console.log("Soham");
-// console.log("How are you ?");
-
-
-// asynchronous code: It switchs context between them
-// console.log("Hello");
-
-// setTimeout(() => {
-//     console.log("Soham");
-// }, 1000);
-
-// console.log("How are you ?");
-
-
-// Example of asynchronous code using setTimeout
-// console.log("Start");
-
-// function importantAction(userName) {
-//     setTimeout(() => {
-//         console.log(`Hello ${userName}`);
-//     }, 1000)
-// };
-
-// const message = importantAction("Billionaire");
-// console.log(message);   // undefined
-
-
 // Example of asynchronous code using Promises
 console.log("Start");
 
@@ -82,7 +43,13 @@ function shareVideo(video) {
 //     });
 
 
-// promise combination
+// promise combination:
+// 1. Promise.all(): It takes an array of promises and returns a single promise that resolves when all of the promises in the array have resolved, or rejects if any of the promises in the array reject.
+// 2. Promise.race(): It takes an array of promises and returns a single promise that resolves or rejects as soon as one of the promises in the array resolves or rejects.
+// 3. Promise.allSettled(): It takes an array of promises and returns a single promise that resolves when all of the promises in the array have settled (either resolved or rejected), with an array of objects that each describe the outcome of each promise.
+// 4. Promise.any(): It takes an array of promises and returns a single promise that resolves as soon as any of the promises in the array resolve, or rejects if all of the promises in the array reject.
+
+
 Promise.all([
     importantAction("Billionaire"),
     likeVideo("Javascript interview questions"),
@@ -92,5 +59,24 @@ Promise.all([
 }).catch((err) => {
     console.log(err);
 })
+
+
+// async await
+const result = async () => {
+    try {
+        const message1 = await importantAction("Billionaire");
+        console.log(message1);
+        const like = await likeVideo("Javascript interview questions");
+        console.log(like);
+        const share = await shareVideo("videos to my friends");
+        console.log(share);
+    
+        // console.log({ message1, like, share });
+    } catch (error) {
+        console.log("Promise failed: ", error);
+    }
+}
+
+result();
 
 console.log("Stop");
