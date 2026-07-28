@@ -40,23 +40,57 @@
 // Example of asynchronous code using Promises
 console.log("Start");
 
-function importantAction(userName, cb) {
-    setTimeout(() => {
-        cb(`Hello ${userName}`);
-    }, 1000)
+function importantAction(userName) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`Hello ${userName}`);
+        }, 1000)
+    })
 };
 
-function likeVideo(video, cb) {
-    setTimeout(() => {
-        cb(`I liked your ${video}`);
-    }, 500);
-}
+function likeVideo(video) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`I liked your ${video}`);
+        }, 2000);
+    })
+};
 
-const message = importantAction("Billionaire", function(message) {
-    console.log(message);   
-    likeVideo("YT Video", (video)=> {
-        console.log(video);
-    });
-});
+function shareVideo(video) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`I'll share your ${video}`);
+        }, 3000);
+    })
+};
+
+// promise chaning
+// importantAction("Billionaire")
+//     .then((res) => {
+//         console.log(res);
+//         return likeVideo("Javascript interview questions");
+//     })
+//     .then((res) => {
+//         console.log(res);
+//         return shareVideo("videos to my friends");
+//     })
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
+
+
+// promise combination
+Promise.all([
+    importantAction("Billionaire"),
+    likeVideo("Javascript interview questions"),
+    shareVideo("videos to my friends")
+]).then((res)=> {
+    console.log(res);
+}).catch((err) => {
+    console.log(err);
+})
 
 console.log("Stop");
