@@ -25,7 +25,7 @@ sub.then((res) => {
 console.log("Stop");
 
 
-// syncronous vs asynchronous code
+// synchronous vs asynchronous code
 
 // synchronous code: It executes code line by line.
 console.log("Hello");
