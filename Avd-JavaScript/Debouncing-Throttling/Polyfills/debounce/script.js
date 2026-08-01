@@ -9,8 +9,15 @@ const count = document.querySelector(".triggered-count");
 var pressedCount = 0;
 var triggreCount = 0;
 
-const myDebounce = (cb, t) => {
+const myDebounce = (cb, d) => {
     let timer;
+
+    return function(...args) {
+        if(timer) clearTimeout(timer);
+        timer = setTimeout(()=> {
+            cb(...args);
+        }, d);
+    }
 };
 
 const debounceCount = myDebounce(() => {
