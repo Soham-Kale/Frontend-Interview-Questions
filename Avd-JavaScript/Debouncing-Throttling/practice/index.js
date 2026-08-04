@@ -14,3 +14,24 @@ const debounceTitle = _.debounce(() => {
 input.addEventListener("input", () => {
     debounceTitle();
 }); 
+
+
+
+// -------------------- Task 2 --------------------------
+// Create a debounce function.
+// Use it with an input box.
+// Print the text only after the user stops typing for 500ms.
+
+let timer;
+
+input.addEventListener("input", () => {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+        input.value = "Searching....";
+    }, 500); // Wait 500ms after user stops typing
+});
+
+
+
+// -------------------- Task 3 --------------------------
